@@ -1,4 +1,4 @@
-# Steel Pipe Rack – Refinery Process Unit (STAAD.Pro)
+# Steel Pipe Rack - Refinery Process Unit (STAAD.Pro)
 
 Structural analysis and design of a 3-tier steel pipe rack for a petroleum refinery process unit, modeled and checked in STAAD.Pro per **IS 800:2007 (Limit State Design)**.
 
@@ -21,7 +21,7 @@ Structural analysis and design of a 3-tier steel pipe rack for a petroleum refin
 
 - **Columns** (members 1–42): ISHB400, oriented with strong axis (Izz) resisting transverse wind bending via `BETA 90`, since the frame relies on portal action in that direction.
 - **Longitudinal tier beams** (members 43–63): ISHB450.
-- **Pipe support beams** (members 64–99): ISHB300 — upgraded from an initial ISMB300 selection after the slenderness check (KL/ryy) exceeded the IS 800 allowable of 180 for these 6.0 m unbraced spans; ISHB300 also gave a bending capacity margin.
+- **Pipe support beams** (members 64–99): ISHB300 - upgraded from an initial ISMB300 selection after the slenderness check (KL/ryy) exceeded the IS 800 allowable of 180 for these 6.0 m unbraced spans; ISHB300 also gave a bending capacity margin.
 - **Bracing** (members 100–127): ISA 200×200×16 double angles, released as pin-ended (axial/truss members only).
 - **Supports**: All 14 column bases fixed at top-of-pedestal level; foundation design carried separately.
 - **Material**: Structural steel, Fe250 (Fy = 250 MPa), E = 2.05×10⁸ kN/m².
