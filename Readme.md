@@ -51,7 +51,7 @@ TRACK 2 ALL
 
 | File | Description |
 |---|---|
-| `pipe_rack_refinery.std` | STAAD.Pro input/analysis file |
+| `steel-pipe-rack-refinery.std` | STAAD.Pro input/analysis file |
 
 ## Tools Used
 
@@ -59,4 +59,4 @@ STAAD.Pro (analysis + IS 800 code check)
 
 ## Notes
 
-This project is part of a structural engineering portfolio built during core/PSU placement preparation (IIT Guwahati, Civil Engineering).
+This project is part of a structural engineering portfolio built during core Preparation(IIT Guwahati, Civil Engineering).
