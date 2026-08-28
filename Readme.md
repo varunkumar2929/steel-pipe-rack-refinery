@@ -104,4 +104,4 @@ STAAD.Pro (analysis + IS 800 code check)
 
 ## Notes
 
-This project is part of a structural engineering portfolio built during core/PSU placement preparation (Civil Engineering, IIT Guwahati). Feedback and suggestions are welcome via issues/PRs.
+This project is part of a structural engineering portfolio built during core preparation (Civil Engineering, IIT Guwahati).
