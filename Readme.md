@@ -1,6 +1,18 @@
-# Steel Pipe Rack - Refinery Process Unit (STAAD.Pro)
+# Steel Pipe Rack – Refinery Process Unit (STAAD.Pro)
 
 Structural analysis and design of a 3-tier steel pipe rack for a petroleum refinery process unit, modeled and checked in STAAD.Pro per **IS 800:2007 (Limit State Design)**.
+
+---
+
+## Objective
+
+Pipe racks are critical secondary structures in oil & gas / petrochemical plants, supporting process, utility, and firewater piping between equipment. This project demonstrates a complete structural workflow for such a system:
+
+1. Model a multi-tier, multi-bay steel pipe rack subjected to realistic gravity (pipe + walkway), wind, and seismic loading.
+2. Analyze the frame under IS 875 (wind) and IS 1893 Part 4 (seismic — industrial structures) load provisions.
+3. Design and verify all members (columns, tier beams, pipe support beams, bracing) per **IS 800:2007 (LSD)**, including strength and slenderness checks.
+4. Iterate member sizing where initial sections fail code checks, and document the reasoning.
+5. Produce a portfolio-ready example of end-to-end structural analysis and design suitable for review by design/EPC consultants.
 
 ## Project Overview
 
@@ -21,7 +33,7 @@ Structural analysis and design of a 3-tier steel pipe rack for a petroleum refin
 
 - **Columns** (members 1–42): ISHB400, oriented with strong axis (Izz) resisting transverse wind bending via `BETA 90`, since the frame relies on portal action in that direction.
 - **Longitudinal tier beams** (members 43–63): ISHB450.
-- **Pipe support beams** (members 64–99): ISHB300 - upgraded from an initial ISMB300 selection after the slenderness check (KL/ryy) exceeded the IS 800 allowable of 180 for these 6.0 m unbraced spans; ISHB300 also gave a bending capacity margin.
+- **Pipe support beams** (members 64–99): ISHB300 — upgraded from an initial ISMB300 selection after the slenderness check (KL/ryy) exceeded the IS 800 allowable of 180 for these 6.0 m unbraced spans; ISHB300 also gave a bending capacity margin.
 - **Bracing** (members 100–127): ISA 200×200×16 double angles, released as pin-ended (axial/truss members only).
 - **Supports**: All 14 column bases fixed at top-of-pedestal level; foundation design carried separately.
 - **Material**: Structural steel, Fe250 (Fy = 250 MPa), E = 2.05×10⁸ kN/m².
@@ -47,11 +59,44 @@ NSF 0.85 ALL
 TRACK 2 ALL
 ```
 
-## Repository Contents
+## Repository Structure
 
-| File | Description |
-|---|---|
-| `steel-pipe-rack-refinery.std` | STAAD.Pro input/analysis file |
+```
+steel-pipe-rack-refinery-staad/
+├── README.md
+└── pipe_rack_refinery.std      # STAAD.Pro input file (analysis + design)
+```
+
+---
+
+## Setup & Reproduction
+
+### Prerequisites
+
+- **STAAD.Pro** (CONNECT Edition or later). A free **student/academic license** is available via the [Bentley Education portal](https://www.bentley.com/software/staad-pro/) for enrolled students.
+- Windows OS (STAAD.Pro does not run natively on macOS/Linux).
+- No additional plugins required — the model uses the built-in Indian steel section database (`MEMBER PROPERTY INDIAN`).
+
+### How to Open
+
+1. Download or clone this repository.
+2. Launch **STAAD.Pro**.
+3. `File → Open` and select `pipe_rack_refinery.std`.
+   - Since `.std` is STAAD's native plain-text format, it will load directly into the modeling environment — no import step needed.
+
+### Running the Analysis
+
+1. Once open, go to the **Analysis/Print** tab (or click the **Run Analysis** icon on the toolbar).
+2. Confirm no geometry/input warnings appear in the analysis engine window.
+3. STAAD will generate an output log (`.anl`) containing joint displacements, member forces, reactions, and the IS 800 code-check report (since `CHECK CODE ALL` is included in the input).
+
+### Viewing Results
+
+- **Post-processing mode**: view bending moment / shear force / deflection diagrams for any load case or combination (LOAD LIST 101–108).
+- **Steel Design tab**: view member-by-member utilization ratios against IS 800 LSD provisions (governing clause, demand/capacity ratio, PASS/FAIL status) — this is where the ISHB300 revision on members 64–99 can be cross-checked.
+- **Reactions**: available at the 14 fixed supports for handoff to foundation design.
+
+---
 
 ## Tools Used
 
@@ -59,4 +104,4 @@ STAAD.Pro (analysis + IS 800 code check)
 
 ## Notes
 
-This project is part of a structural engineering portfolio built during core Preparation(IIT Guwahati, Civil Engineering).
+This project is part of a structural engineering portfolio built during core/PSU placement preparation (Civil Engineering, IIT Guwahati). Feedback and suggestions are welcome via issues/PRs.
